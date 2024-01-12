@@ -1,0 +1,1 @@
+This project is licensed under GPLv3 with a specific exception for usage within Home Assistant and its libraries where it's licensed as MIT.

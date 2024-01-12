@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+# Copyright (c) 2018, Frappe Technologies and contributors
+# For license information, please see license.txt
+
+from __future__ import unicode_literals
 
 # English case below
 
@@ -53,8 +57,9 @@ class IPASubmap(object):
 
   def __init__(self):
     # Extracted from https://en.wikipedia.org/wiki/Phonetic_symbols_in_Unicode, sorted, ignoring diacritics and modifiers,
-    # That's exactly 324 characters, so an index into this string will require 9 bits
-    self.alphabet = "abcdefhjklmnopqrstvwxzæçðøħŋœȡȴȵȶɐɑɒɓɔɕɖɗɘəɚɛɜɝɞɟɠɡɢɣɤɥɦɧɨɩɪɫɬɭɮɯɰɱɲɳɴɵɶɷɸɹɺɻɼɽɾɿʀʁʂʃʄʅʆʇʈʉʊʋʌʍʎʏʐʑʒʓʔʕʖʗʘʙʚʛʜʝʞʟʠʡʢʣʤʥʦʧʨʩʪʫʬʭʮʯβθχᴀᴁᴂᴃᴄᴅᴆᴇᴈᴉᴊᴋᴌᴍᴎᴏᴐᴑᴒᴓᴔᴕᴖᴗᴘᴙᴚᴛᴜᴝᴞᴟᴠᴡᴢᴣᴤᴥᴦᴧᴨᴩᴪᴫᴬᴭᴮᴯᴰᴱᴲᴳᴴᴵᴶᴷᴸᴹᴺᴻᴼᴽᴾᴿᵀᵁᵂᵃᵄᵅᵆᵇᵈᵉᵊᵋᵌᵍᵎᵏᵐᵑᵒᵓᵔᵕᵖᵗᵘᵙᵚᵛᵜᵝᵞᵟᵠᵡᵢᵣᵤᵥᵦᵧᵨᵩᵪᵫᵬᵭᵮᵯᵰᵱᵲᵳᵴᵵᵶᵷᵸᵹᵺᵻᵼᵽᵾᵿᶀᶁᶂᶃᶄᶅᶆᶇᶈᶉᶊᶋᶌᶍᶎᶏᶐᶑᶒᶓᶔᶕᶖᶗᶘᶙᶚᶛᶜᶝᶞᶟᶠᶡᶢᶣᶤᶥᶦᶧᶨᶩᶪᶫᶬᶭᶮᶯᶰᶱᶲᶳᶴᶵᶶᶷᶸᶹᶺᶻᶼᶽᶾᶿ"
+    # That's exactly 424 characters, so an index into this string will require 9 bits
+    self.alphabet = "abcdefhijklmnopqrstuvwxyzæçðøħŋœǀǁǂǃȡȴȵȶɐɑɒɓɔɕɖɗɘəɚɛɜɝɞɟɠɡɢɣɤɥɦɧɨɩɪɫɬɭɮɯɰɱɲɳɴɵɶɷɸɹɺɻɼɽɾɿʀʁʂʃʄʅʆʇʈʉʊʋʌʍʎʏʐʑʒʓʔʕʖʗʘʙʚʛʜʝʞʟʠʡʢʣʤʥʦʧʨʩʪʫʬʭʮʯʰʱʲʳʴʵʶʷʸʹʺʻʼʽʾʿˀˁ˂˃˄˅ˆˇˈˉˊˋˌˍˎˏːˑ˒˓˔˕˖˗˘˙˚˛˜˝˞˟ˠˡˢˣˤ˥˦˧˨˩˪˫ˬ˭ˮ˯˰˱˲˳˴˵˶˷˸˹˺˻˼˽˾˿̞̟̥̪̈̊͡βθχᶑᷰⱱꞎᴀᴁᴂᴃᴄᴅᴆᴇᴈᴉᴊᴋᴌᴍᴎᴏᴐᴑᴒᴓᴔᴕᴖᴗᴘᴙᴚᴛᴜᴝᴞᴟᴠᴡᴢᴣᴤᴥᴦᴧᴨᴩᴪᴫᴬᴭᴮᴯᴰᴱᴲᴳᴴᴵᴶᴷᴸᴹᴺᴻᴼᴽᴾᴿᵀᵁᵂᵃᵄᵅᵆᵇᵈᵉᵊᵋᵌᵍᵎᵏᵐᵑᵒᵓᵔᵕᵖᵗᵘᵙᵚᵛᵜᵝᵞᵟᵠᵡᵢᵣᵤᵥᵦᵧᵨᵩᵪᵫᵬᵭᵮᵯᵰᵱᵲᵳᵴᵵᵶᵷᵸᵹᵺᵻᵼᵽᵾᵿᶀᶁᶂᶃᶄᶅᶆᶇᶈᶉᶊᶋᶌᶍᶎᶏᶐᶑᶒᶓᶔᶕᶖᶗᶘᶙᶚᶛᶜᶝᶞᶟᶠᶡᶢᶣᶤᶥᶦᶧᶨᶩᶪᶫᶬᶭᶮᶯᶰᶱᶲᶳᶴᶵᶶᶷᶸᶹᶺᶻᶼᶽᶾᶿ"
+
 
   @staticmethod
   def binarySearchOnString(arr, x):
@@ -70,9 +75,14 @@ class IPASubmap(object):
         r = m - 1
     return -1  #   If element is not found  then it will return -1
 
-  def discode(self, text):
+  def _discode(self, text):
     r = [ self.binarySearchOnString(self.alphabet, c) for c in text ]
     return [ c for c in r if c >= 0 ]
+
+  def discode(self, text):
+    if isinstance(text, list):
+      return [ self._discode(t) for t in text ]
+    return self._discode(text)
 
 
 class ConfusionMatrix(object):
@@ -82,14 +92,12 @@ class ConfusionMatrix(object):
       self.matrix = []
       self.submap = IPASubmap()
 
-  def confuseScore(self, A, B, budget = None):
-    """ Get the similarity score of string of phoneme A vs string of phoneme B. Similar phonemes will have a score close to 1, while dissimilar phonemes will have a score close to 0
+  def _confuseScorePre(self, a, b, budget = None):
+    """ Get the similarity score of string of phoneme A vs string of phoneme B that are already preprocessed. 
+        Similar phonemes will have a score close to 1, while dissimilar phonemes will have a score close to 0
         If budget is None, this returns a score of similarity of 1 for similar SOP.
         Else, this returns the updated budget, where each change decreasing the budget by the confusion matrix score. It stops matching if budget is 0.
     """
-    a = self.submap.discode(A)
-    b = self.submap.discode(B)
-
     if budget == None:
       # Don't try a Levenshtein search if no budget for it
       # For now, string of different length are different in all cases
@@ -103,6 +111,8 @@ class ConfusionMatrix(object):
       threshold = 0.99
       score = budget
       j = 0; i = 0
+      if len(a) < len(b): # Swap
+        a, b = b, a
       while i < len(a):
         # Substitution on end of the string ?
         if j >= len(b):
@@ -127,6 +137,85 @@ class ConfusionMatrix(object):
         i = i + 1
 
       return score
+
+  def _confuseScore(self, A, B, budget = None):
+    """ Get the similarity score of string of phoneme A vs string of phoneme B. Similar phonemes will have a score close to 1, while dissimilar phonemes will have a score close to 0
+        If budget is None, this returns a score of similarity of 1 for similar SOP.
+        Else, this returns the updated budget, where each change decreasing the budget by the confusion matrix score. It stops matching if budget is 0.
+    """
+    a = self.submap.discode(A)
+    b = self.submap.discode(B)
+
+    return self._confuseScorePre(a, b, budget)
+
+
+  def confuseScore(self, A, B, budget = None):
+    """ Get the similarity score of string of phonemes A vs string of phonemes B. Similar phonemes will have a score close to 1, while dissimilar phonemes will have a score close to 0
+        If budget is None, this returns a score of similarity of 1 for similar SOP.
+        Else, this returns the updated budget, where each change decreasing the budget by the confusion matrix score. It stops matching if budget is 0.
+    """
+    if isinstance(A, list) or isinstance(B, list):
+      if not isinstance(A, list) or not isinstance(B, list):
+        return 0.0
+      # The algorithm here is a bit more complex
+      # Typically, we'll first try to match word by word
+      # If score pass then we return this score
+      # Else, we'll rebuild a whole sentence without spaces and try matching again
+      # If score pass then we return this score
+      # Else, we return 0
+      tmpBudget = budget
+      for c in zip(A, B):
+        score = self._confuseScore(c[0], c[1], tmpBudget)
+        if score == 0:
+          tmpBudget = 0.0
+          break
+        tmpBudget = score
+      
+      if tmpBudget > 0:
+        return tmpBudget
+
+      # Rebuild the sentence and try again
+      A = "".join(A)
+      B = "".join(B)
+    
+    return self._confuseScore(A, B, budget)
+
+
+  def confuseScorePre(self, A, B, budget):
+    """ Get the similarity score of string of phonemes A vs string of phonemes B that are already preprocessed. 
+        Similar phonemes will have a score close to 1, while dissimilar phonemes will have a score close to 0
+        This returns a tuple of the remaining budget for the best match and the number of consumed phonemes, where each change decreasing the budget by the confusion matrix score. It stops matching if budget is 0.
+    """
+    if not isinstance(A, list) or not isinstance(B, list):
+      # Preprocessed input is a list of list of indexes
+      # So bail out if not given what we expect
+      return 0.0
+    
+    # The algorithm here is a bit more complex
+    # Typically, we'll first try to match word by word
+    # If score pass then we return this score
+    # Else, we'll rebuild a whole sentence without spaces and try matching again
+    # If score pass then we return this score
+    # Else, we return 0
+    tmpBudget = budget
+    consumed = 0
+    for c in zip(A, B):
+      score = self._confuseScorePre(c[0], c[1], tmpBudget)
+      consumed = consumed + min(len(c[0]), len(c[1]))
+      if score == 0:
+        tmpBudget = 0.0
+        consumed = 0
+        break
+      tmpBudget = score
+    
+    if tmpBudget > 0:
+      return (tmpBudget, consumed)
+
+    # Rebuild the sentence and try again by flattening the strings
+    a = [x for word in A for x in word]
+    b = [x for word in B for x in word]    
+    return (self._confuseScorePre(a, b, budget), min(len(a), len(b)))
+
 
   def confuseScorePhoneme(self, A, B):
     # TODO: Supports confusion matrix here

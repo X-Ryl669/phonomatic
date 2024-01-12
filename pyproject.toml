@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "phonomatic"
+description = "A phonetic intent matching algorithm library"
+dynamic = ["version"]
+authors = [
+  { name = "X-Ryl669", email = "boite.pour.spam@gmail.com" },
+]
+maintainers = [
+  { name = "X-Ryl669", email = "boite.pour.spam@gmail.com" },
+]
+dependencies = [ "epitran==1.23" ]
+requires-python = ">=3.8"
+
+[tool.hatch.version]
+path = "src/phonomatic/__about__.py"
+
+[tool.hatch.envs.test]
+dependencies = [
+  "coverage[toml]",
+  "pytest",
+  "pytest-cov",
+  "pytest-mock",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
